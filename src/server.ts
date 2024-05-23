@@ -6,7 +6,7 @@ async function main() {
   try {
     await mongoose.connect(config.database_url as string);
     app.listen(config.port, () => {
-      console.log(`The System is initialized successfully on port ${config.port}`);
+      console.log(`System is initialized successfully on port ${config.port}`);
     });
   } catch (erorr) {
     console.log(erorr);
