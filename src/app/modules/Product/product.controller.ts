@@ -45,7 +45,7 @@ const searchProduct = async (req: Request, res: Response) => {
       data: error,
     });
   }
-};
+}
 
 // Single product
 const getSingleProduct = async (req: Request, res: Response) => {
