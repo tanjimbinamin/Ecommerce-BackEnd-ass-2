@@ -7,6 +7,6 @@ const router = express.Router();
 router.post("/", orderController.createNewOrder);
 
 // Retrive all orders and search a specific order 
-router.get("/", orderController.retriveAndSearchOrders);
+router.get("/", orderController.getOrders);
 
 export const orderRoute = router;

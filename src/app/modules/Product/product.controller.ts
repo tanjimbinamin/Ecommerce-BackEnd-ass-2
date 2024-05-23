@@ -7,15 +7,16 @@ import ProductValidationSchema from "./product.validation";
 const createProduct = async (req: Request, res: Response) => {
   try {
     const newProduct: TProduct = req.body;
+    
 
     const zodValidationParse = ProductValidationSchema.parse(newProduct);
 
-    const result = await productService.createNewProductIntoDB(zodValidationParse);
+    const results = await productService.createNewProductIntoDB(zodValidationParse);
 
     res.status(200).json({
       success: true,
       message: "Product created successfully!",
-      data: result,
+      data: results
     });
   } catch (error) {
     res.status(200).json({

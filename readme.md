@@ -10,15 +10,9 @@ This server, crafted with Express, TypeScript, and Mongoose, offers comprehensiv
 2. Going to the project directory.
 3. Open cmd and run npm install to install everything.
 
-## Configuration
 
-Then you need to set up your environment variables and configure the MongoDB connection.
 
-1. In the root directory add .env file.
-
-2. Add the necessary environment variables to the `.env` file.
-
-## Features
+## Characteristics
 
 ### Product Management
 
@@ -28,6 +22,6 @@ Then you need to set up your environment variables and configure the MongoDB con
 
 ### Order Management
 
-- **Create and Read Operations:** Easily create and view orders with intuitive functionalities.
+- **Create and Read Operations:** Easily create and view orders with many functionalities.
 - **Search Functionality:** Find orders efficiently using different parameters.
 - **Data Validation:** Maintain data consistency through validation with Zod, TypeScript, and Mongoose.

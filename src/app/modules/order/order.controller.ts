@@ -7,12 +7,18 @@ import orderValidationSchema from "./order.validation";
 const createNewOrder = async (req: Request, res: Response) => {
   try {
     const orderData: TOrder = req.body;
+    
     const zodOrderValidation = orderValidationSchema.parse(orderData);
-    const result = await orderService.createNewOrderIntoDB(zodOrderValidation);
+    const results = await orderService.createNewOrderIntoDB(zodOrderValidation);
+    
+    console.log(results);
+
     res.status(200).json({
       success: true,
-      message: "Order created successfully!",
-      data: result,
+      message: "Orders created successfully!",
+
+      data: results,
+
     });
   } catch (error) {
     res.status(500).json({
@@ -24,7 +30,7 @@ const createNewOrder = async (req: Request, res: Response) => {
 };
 
 // Retrieve all orders
-const retriveOrders = async (req: Request, res: Response) => {
+const getOrders = async (req: Request, res: Response) => {
   try {
     const { email } = req.query;
     const allOrders = await orderService.retriveAllOrdersFromDB(email);
@@ -44,5 +50,5 @@ const retriveOrders = async (req: Request, res: Response) => {
 
 export const orderController = {
   createNewOrder,
-  retriveAndSearchOrders: retriveOrders,
+   getOrders,
 };
