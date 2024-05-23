@@ -1,11 +1,21 @@
-import express from 'express'
-const app = express()
-const port = 3000
+import express, { Request, Response } from "express";
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+const app = express();
+
+app.use(express.json());
+
+
+
+app.use((req, res) => {
+  res.status(500).json({
+    success: false,
+    message: "Route not found",
+  });
+});
+
+app.get("/", (req: Request, res: Response) => {
+  res.send("Hello! products");
+});
+
+export default app;
