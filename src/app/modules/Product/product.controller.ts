@@ -10,8 +10,7 @@ const createProduct = async (req: Request, res: Response) => {
 
     const zodValidationParse = ProductValidationSchema.parse(newProduct);
 
-    const result =
-      await productService.createNewProductIntoDB(zodValidationParse);
+    const result = await productService.createNewProductIntoDB(zodValidationParse);
 
     res.status(200).json({
       success: true,
@@ -32,7 +31,7 @@ const searchProduct = async (req: Request, res: Response) => {
   try {
     const searchQuery = req.query.searchTerm;
     const retrivedProducts =
-      await productService.retriveAllProductsFromDB(searchQuery);
+      await productService.getAllProductsFromDB(searchQuery);
     res.status(200).json({
       success: true,
       message: "Products fetched successfully!",
@@ -48,11 +47,11 @@ const searchProduct = async (req: Request, res: Response) => {
 };
 
 // Single product
-const retriveSingleProduct = async (req: Request, res: Response) => {
+const getSingleProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
     const singleProudct =
-      await productService.retriveSingleProductFromDB(productId);
+      await productService.getSingleProductFromDB(productId);
     res.status(200).json({
       success: true,
       message: "Product fetched successfully!",
@@ -68,7 +67,7 @@ const retriveSingleProduct = async (req: Request, res: Response) => {
 };
 
 // Update product
-const updateSingelProduct = async (req: Request, res: Response) => {
+const updateSingleProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
     const updatedInfo = req.body;
@@ -114,7 +113,7 @@ const deleteProduct = async (req: Request, res: Response) => {
 export const productsController = {
   createProduct,
   searchProduct,
-  retriveSingleProduct,
-  updateSingelProduct,
+  getSingleProduct,
+  updateSingleProduct,
   deleteProduct,
 };

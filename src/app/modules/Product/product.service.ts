@@ -1,15 +1,15 @@
 import { TProduct } from "./product.interface";
 import { ProductModel } from "./product.model";
 
-// Create a new Product
+// Create Product
 const createNewProductIntoDB = async (product: TProduct) => {
   const result = await ProductModel.create(product);
 
   return result;
 };
 
-// Retrive all products
-const retriveAllProductsFromDB = async (searchQuery: unknown) => {
+// All products
+const getAllProductsFromDB = async (searchQuery: unknown) => {
   if (searchQuery) {
     return await ProductModel.find({
       $or: [
@@ -24,8 +24,8 @@ const retriveAllProductsFromDB = async (searchQuery: unknown) => {
   }
 };
 
-// Retrieve single product
-const retriveSingleProductFromDB = async (id: string) =>
+// Single product
+const getSingleProductFromDB = async (id: string) =>
   await ProductModel.findById(id);
 
 // Update a single product
@@ -45,8 +45,8 @@ const deleteSingleProductIntoDB = async (id: string) => {
 
 export const productService = {
   createNewProductIntoDB,
-  retriveAllProductsFromDB,
-  retriveSingleProductFromDB,
+  getAllProductsFromDB,
+  getSingleProductFromDB,
   updateSingleProductIntoDB,
   deleteSingleProductIntoDB,
 };

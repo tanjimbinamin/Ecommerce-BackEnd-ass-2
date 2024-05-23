@@ -10,10 +10,10 @@ router.post("/", productsController.createProduct);
 router.get("/", productsController.searchProduct);
 
 // Retrieve a product
-router.get("/:productId", productsController.retriveSingleProduct);
+router.get("/:productId", productsController.getSingleProduct);
 
 // Update product
-router.put("/:productId", productsController.updateSingelProduct);
+router.put("/:productId", productsController.updateSingleProduct);
 
 // Delete product
 router.delete("/:productId", productsController.deleteProduct);
